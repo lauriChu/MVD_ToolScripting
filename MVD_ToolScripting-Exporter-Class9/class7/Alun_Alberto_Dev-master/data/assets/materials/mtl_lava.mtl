@@ -1,0 +1,26 @@
+{
+	"scene": "class7",
+	"entities": [{
+			"name": "Box001",
+			"transform": {
+				"translation": [-0.366821, 0.0, 0.0],
+				"rotation": [0.0, 0.0, 0.0],
+				"scale": [1.0, 1.0, 1.0]
+			},
+			"render": {
+				"mesh": "data/assets/meshes/Box001.obj",
+				"materials": ["data/assets/materials/mtl_floor.mtl"]
+			},
+			"collider": {
+				"group": "All",
+				"mask": "",
+				"center": [0.0, -0.5, 0.0],
+				"halfwidth": [25.0, 0.499999, -25.0],
+				"trigger": false,
+				"dynamic": false,
+				"controller": false,
+				"gravity": false
+			}
+		}
+	]
+}

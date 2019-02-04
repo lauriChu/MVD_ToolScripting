@@ -1,0 +1,26 @@
+{
+	"entities": [{
+		"name": "Sphere001",
+		"transform": {
+			"translation": [0, 10, 0],
+			"rotation": [0.0, 0.0, 0.0, 1.0],
+			"scale": [1.0,1.0,1.0]
+		},
+		"render": {
+			"mesh": "data/assets/meshes/Box001.obj",
+			"materials": ["data/assets/materials/mtl_test_floor.mtl"]
+		},
+		"collider": {
+			"group": "All",
+			"mask": "Player",	
+			"type": "basic",
+			"center": [0, 0, 0],
+			"halfwidth": [1, 0.5, 1],
+			"trigger": 1,
+			"dynamic": 1,
+			"controller": 0,
+			"gravity": 0
+		},
+		"tags": ["default"]
+	}]
+}

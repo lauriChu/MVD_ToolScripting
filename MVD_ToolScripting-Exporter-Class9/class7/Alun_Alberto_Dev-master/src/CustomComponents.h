@@ -1,0 +1,12 @@
+#pragma once
+#include "includes.h"
+#include "extern.h"
+#include "GraphicsSystem.h"
+#include "ControlSystem.h"
+#include "DebugSystem.h"
+#include "CollisionSystem.h"
+#include "EntityComponentStore.h"
+
+//////////////////////////////////////////////////////////
+////////////////// CUSTOM COMPONENTS /////////////////////
+//////////////////////////////////////////////////////////

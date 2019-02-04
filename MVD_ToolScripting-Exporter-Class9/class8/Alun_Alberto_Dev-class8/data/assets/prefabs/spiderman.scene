@@ -1,0 +1,1 @@
+{"prefab":"spiderman","entities":[{"name":"spiderman_ffh1_reference_001","transform":{"translation":[0.0,0.0,0.0],"rotation":[0.0,0.0,0.0],"scale":[1.0,1.0,1.0]},"render":{"mesh":"data/assets/meshes/spiderman_ffh1_reference_001.obj","materials":["data/assets/materials/mtl_spiderman.mtl"]}}]}

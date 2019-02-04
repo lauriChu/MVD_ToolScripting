@@ -1,0 +1,17 @@
+{
+  "entities": [
+
+    {
+      "transform": {},
+      "render": {},
+      "collider": {},
+      "tags": [ "" ]
+    },
+    {
+      "transform": {},
+      "render": {},
+      "collider": {},
+      "tags": [ "" ]
+    }
+  ]
+}

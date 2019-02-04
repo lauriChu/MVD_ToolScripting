@@ -1,0 +1,15 @@
+{
+	"scene": "class7",
+	"entities": [{
+			"name": "Box001",
+			"transform": {
+				"translation": [2.71962, -12.2155, -14.9366],
+				"rotation": [0.0, 0.0, 0.0],
+				"scale": [1.0, 1.0, 1.0]
+			},
+			"render": {
+				"mesh": "data/assets/meshes/Box001.obj"
+			}
+		}
+	]
+}
