@@ -2,6 +2,7 @@
 #include "Components.h"
 #include "components/comp_rotator.h"
 #include "components/comp_tag.h"
+#include "components/comp_platform.h"
 #include <vector>
 #include <unordered_map>
 #include <map>
@@ -41,12 +42,14 @@ struct EntityComponentStore {
         auto& lights = getAllComponents<Light>();
         auto& colliders = getAllComponents<Collider>();
         auto& rotators = getAllComponents<Rotator>();
+		auto& platforms = getAllComponents<Platform>();
         auto& tags = getAllComponents<Tag>();
 
         for (auto& light : lights) light.update(dt);
         for (auto& col : colliders) col.update(dt);
         for (auto& rot : rotators) rot.update(dt);
         for (auto& tag : tags) tag.update(dt);
+		for (auto& platform : platforms) platform.update(dt);
     }
 
     void render() {
@@ -55,12 +58,14 @@ struct EntityComponentStore {
         auto& lights = getAllComponents<Light>();
         auto& colliders = getAllComponents<Collider>();
         auto& rotators = getAllComponents<Rotator>();
+		auto& platforms = getAllComponents<Platform>();
         auto& tags = getAllComponents<Tag>();
 
         for (auto& light : lights) light.render();
         for (auto& col : colliders) col.render();
         for (auto& rot : rotators) rot.render();
         for (auto& tag : tags) tag.render();
+		for (auto& platform : platforms) platform.render();
     }
 
     void renderEntity(int entity_id)
@@ -70,6 +75,7 @@ struct EntityComponentStore {
         debugRender<Light>(entity_id);
         debugRender<Collider>(entity_id);
         debugRender<Rotator>(entity_id);
+		debugRender<Platform>(entity_id);
         debugRender<Tag>(entity_id);
     }
 
