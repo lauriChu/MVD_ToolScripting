@@ -14,7 +14,9 @@ Exported correctly into our engine.
 
 ### 3. Create a new component
 I created a component named Platform wich allows a translation of meshes. This component have parameters like velocity... that can be modifyied. You can add this component into render with the button on inspector menu.
-![Img6](https://github.com/lauriChu/MVD_ToolScripting/blob/master/MVD_ToolScripting-Exporter-Class9/6.PNG)
+
+![Img7](https://github.com/lauriChu/MVD_ToolScripting/blob/master/MVD_ToolScripting-Exporter-Class9/7.PNG)
+
 ### 4. Complete the renderer debug menu
 Taking advantage of current parameters/information of Materials in our GraphicsSystem, I added information about the textures, specular, ambient...
 
@@ -23,6 +25,8 @@ Taking advantage of current parameters/information of Materials in our GraphicsS
 ### 5. Add script logic on console editor
 I added a command for change the current camera between the both that exists in the engines (first for player, and second for debug with free movements and without colliders). You cange change between then with the command "change_camera" and passing 0/1 for each camera.
 I added a command for enable/disable debug system rendering using "switch_debug" and passing 0/1 for enable and disable accordingly.
+
+![Img6](https://github.com/lauriChu/MVD_ToolScripting/blob/master/MVD_ToolScripting-Exporter-Class9/6.PNG)
 
 ### 6. Finish loading json in max (scene changes between engine/max). ----
 
