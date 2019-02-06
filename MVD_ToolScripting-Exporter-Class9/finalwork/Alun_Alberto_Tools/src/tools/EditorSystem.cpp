@@ -459,12 +459,46 @@ void EditorSystem::SetPickingRay(int mouse_x, int mouse_y, int screen_width, int
 // Dialog window to add a component
 void EditorSystem::UpdateComponentMenu(float dt)
 {
-    if(is_adding_component)
-    {
-        //TO-DO
-        // Here create the window
+	if (is_adding_component)
+	{
+		ImGui::Begin("Add new component", &is_editor_mode);
+		{
 
+			//TEXT TOP
+			ImGui::Text("Select type:");
+			ImGui::AddSpace(0, 10);
 
+			//DROPDOWN LIST
+			const char* items[] = { "Rotator", "Tag", "MovablePlatform" };
+			static const char* current_item = items[0];
+			static int id_item;
+			if (ImGui::BeginCombo("##combo", current_item)) // The second parameter is the label previewed before opening the combo.
+			{
+				for (int n = 0; n < IM_ARRAYSIZE(items); n++)
+				{
+					bool is_selected = (current_item == items[n]); // You can store your selection however you want, outside or inside your objects
+					if (ImGui::Selectable(items[n], is_selected)) {
+						current_item = items[n];
+						id_item = n;
+					}
+					if (is_selected)
+						ImGui::SetItemDefaultFocus();   // You may set the initial focus when opening the combo (scrolling + for keyboard navigation support)		
+				}
+				ImGui::EndCombo();
+			}
+
+			//BUTTON CHECK
+			ImGui::AddSpace(0, 10);
+			if (ImGui::Button("Add")) {
+				is_adding_component = false;
+				int entity_id = ECS.getEntity(selected);
+				AddComponentSelected(id_item);
+			}
+
+		}
+		ImGui::End();
+
+	
     }
 }
 
@@ -472,5 +506,17 @@ void EditorSystem::UpdateComponentMenu(float dt)
 void EditorSystem::AddComponentSelected(int id)
 {
     // TO-DO
+	switch (id) {
+	case 0:
+		ECS.createComponentForEntity<Rotator>(id);
+		break;
+	case 1:
+		ECS.createComponentForEntity<Tag>(id);
+		break;
+	case 2:
+		ECS.createComponentForEntity<Platform>(id);
+		break;
+	}
+
 }
 

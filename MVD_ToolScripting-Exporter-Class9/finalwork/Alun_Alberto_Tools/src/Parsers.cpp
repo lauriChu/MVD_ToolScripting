@@ -656,6 +656,10 @@ int Parsers::parseEntity(rapidjson::Value & entity, GraphicsSystem & graphics_sy
     }
 
     // Custom components here!
+	if (entity.HasMember("platform")) {
+		Platform& platform = ECS.createComponentForEntity<Platform>(ent_id);
+		platform.Load(entity, ent_id);
+	}
 
     // Parse custom components here
     if (entity.HasMember("rotator")) {

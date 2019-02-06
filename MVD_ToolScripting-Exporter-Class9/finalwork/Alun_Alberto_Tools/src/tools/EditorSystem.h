@@ -73,6 +73,7 @@ private:
     void UpdateComponentMenu(float dt);
     void AddComponentSelected(int id);
     void SaveSceneToFile(const std::string & scene_name);
+	void DeleteEntity(int entity_id);
 
     std::string selected;
     int ent_picking_ray_;
