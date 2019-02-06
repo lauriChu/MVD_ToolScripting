@@ -218,13 +218,20 @@ void EditorSystem::UpdateInspector(float dt)
                 is_adding_component = true;
             }
 
-			if (ImGui::Button("Delete"))
+			if (ImGui::Button("Enable/Disable"))
 			{
 				is_removing_component = true;
+				DeleteEntity(entity_id);
 			}
         }
     }
     ImGui::End();
+}
+
+void EditorSystem::DeleteEntity(int entity_id) {
+	Mesh& current_mesh = ECS.getComponentFromEntity<Mesh>(entity_id);
+	current_mesh.enable = !current_mesh.enable;
+	std::cout << "Mesh Enable State changed";
 }
 
 // Renders the node in a hierarchy panel

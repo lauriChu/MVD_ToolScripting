@@ -64,6 +64,7 @@ struct Transform : public Component, public lm::mat4 {
 struct Mesh : public Component {
     int geometry;
     int material;
+	bool enable = true;
 
     void Save(rapidjson::Document& json, rapidjson::Value & entity);
     void Load(rapidjson::Value & entity, int ent_id);
