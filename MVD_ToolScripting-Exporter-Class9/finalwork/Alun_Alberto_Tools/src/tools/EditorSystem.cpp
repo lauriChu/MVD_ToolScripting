@@ -217,6 +217,11 @@ void EditorSystem::UpdateInspector(float dt)
             if (ImGui::Button("Add new component")) {
                 is_adding_component = true;
             }
+
+			if (ImGui::Button("Delete"))
+			{
+				is_removing_component = true;
+			}
         }
     }
     ImGui::End();
@@ -499,7 +504,10 @@ void EditorSystem::UpdateComponentMenu(float dt)
 		ImGui::End();
 
 	
-    }
+    } else if (is_removing_component)
+	{
+
+	}
 }
 
 // Adds the given component to the object selected.

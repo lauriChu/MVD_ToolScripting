@@ -57,6 +57,7 @@ private:
     bool is_editor_mode;
     bool is_render_active;
     bool is_adding_component;
+	bool is_removing_component;
     bool is_saving_scene;
 
     void RenderNode(TransformNode & trans);
