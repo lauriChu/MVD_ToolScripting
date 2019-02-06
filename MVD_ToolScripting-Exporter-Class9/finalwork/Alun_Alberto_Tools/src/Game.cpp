@@ -34,7 +34,7 @@ void Game::init(int window_width, int window_height) {
     
 	//this is a simple level parser which reads a json file and loads it into the engine
     //Parsers::parseJSONLevel("data/assets/level4.json", graphics_system_);
-    Parsers::parseScene("data/assets/scenes/FirstLevel.scene", graphics_system_);
+    Parsers::parseScene("data/assets/scenes/FirstLevel06.scene", graphics_system_);
 
 	//'o' = 'free look'; 'p' = fps 
 	createFree_((float)window_width_ / (float)window_height_, control_system_);

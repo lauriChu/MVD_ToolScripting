@@ -42,8 +42,8 @@ struct EntityComponentStore {
         auto& lights = getAllComponents<Light>();
         auto& colliders = getAllComponents<Collider>();
         auto& rotators = getAllComponents<Rotator>();
-		auto& platforms = getAllComponents<Platform>();
         auto& tags = getAllComponents<Tag>();
+		auto& platforms = getAllComponents<Platform>();
 
         for (auto& light : lights) light.update(dt);
         for (auto& col : colliders) col.update(dt);
@@ -58,8 +58,8 @@ struct EntityComponentStore {
         auto& lights = getAllComponents<Light>();
         auto& colliders = getAllComponents<Collider>();
         auto& rotators = getAllComponents<Rotator>();
-		auto& platforms = getAllComponents<Platform>();
         auto& tags = getAllComponents<Tag>();
+		auto& platforms = getAllComponents<Platform>();
 
         for (auto& light : lights) light.render();
         for (auto& col : colliders) col.render();
@@ -75,8 +75,8 @@ struct EntityComponentStore {
         debugRender<Light>(entity_id);
         debugRender<Collider>(entity_id);
         debugRender<Rotator>(entity_id);
-		debugRender<Platform>(entity_id);
         debugRender<Tag>(entity_id);
+		debugRender<Platform>(entity_id);
     }
 
     template<std::size_t I = 0, typename... Tp>

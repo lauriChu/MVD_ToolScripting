@@ -211,6 +211,7 @@ struct GUIText : public GUIElement {
 /**** COMPONENT STORAGE ****/
 struct Rotator;
 struct Tag;
+struct Platform;
 
 //add new component type vectors here to store them in *ECS*
 typedef std::tuple<
@@ -222,7 +223,8 @@ typedef std::tuple<
     std::vector<GUIElement>,
     std::vector<GUIText>,
     std::vector<Rotator>,
-    std::vector<Tag>
+    std::vector<Tag>,
+	std::vector<Platform>
 > ComponentArrays;
 
 //way of mapping different types to an integer value i.e.
@@ -238,8 +240,10 @@ template<> struct type2int<GUIElement> { enum { result = 5 }; };
 template<> struct type2int<GUIText> { enum { result = 6 }; };
 template<> struct type2int<Rotator> { enum { result = 7 }; };
 template<> struct type2int<Tag> { enum { result = 8 }; };
+template<> struct type2int<Platform> { enum { result = 9 }; };
+
 //UPDATE THIS!
-const int NUM_TYPE_COMPONENTS = 9;
+const int NUM_TYPE_COMPONENTS = 10;
 
 /**** ENTITY ****/
 

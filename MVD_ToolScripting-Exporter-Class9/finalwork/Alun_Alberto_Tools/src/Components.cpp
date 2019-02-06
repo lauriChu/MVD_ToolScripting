@@ -296,6 +296,7 @@ void Entity::Save(rapidjson::Document& json, rapidjson::Value & entity) {
     auto& collider = ECS.getSafeComponentFromEntity<Collider>(name);
     auto& rotator = ECS.getSafeComponentFromEntity<Rotator>(name);
     auto& tag = ECS.getSafeComponentFromEntity<Tag>(name);
+	auto& platform = ECS.getSafeComponentFromEntity<Platform>(name);
 
     if (transform.index != 0) transform.Save(json, entity);
     if (mesh.index != 0) mesh.Save(json, entity);
@@ -303,4 +304,5 @@ void Entity::Save(rapidjson::Document& json, rapidjson::Value & entity) {
     if (collider.index != 0) collider.Save(json, entity);
     if (rotator.index != 0) rotator.Save(json, entity);
     if (tag.index != 0) tag.Save(json, entity);
+	if (platform.index != 0) platform.Save(json, entity);
 }
