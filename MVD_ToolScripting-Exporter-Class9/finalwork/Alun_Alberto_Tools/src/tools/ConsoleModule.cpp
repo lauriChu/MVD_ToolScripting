@@ -59,6 +59,7 @@ void ConsoleModule::init()
     commands_.push_back("/history");
     commands_.push_back("/clear");
     commands_.push_back("/classify");
+	commands_.push_back("/move_player");
 	commands_.push_back("/change_camera");
     ConsoleWrite(true, "Console Initialized!");
 }
@@ -269,7 +270,7 @@ void ConsoleModule::BuildCommand(const char* cmd)
         camera.position = lm::vec3(posx, posy, posz);
         ConsoleWrite(false, "Executed command: '%s'\n", cmd);
     }
-	else if (input.find("changecamera") != std::string::npos) 
+	else if (input.find("change_camera") != std::string::npos) 
 	{
 		float current_camera = atof(v[1].c_str());
 		float total_cameras = ECS.getAllComponents<Camera>().size();
@@ -277,8 +278,7 @@ void ConsoleModule::BuildCommand(const char* cmd)
 			ECS.main_camera = current_camera;
 		}
 		else {
-			ECS.main_camera = 0;
-			ConsoleWrite(true, "Reinstantianed first camera");
+			ConsoleWrite(false, "This camera doesn't exist");
 		}
 	}
     else {
