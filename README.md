@@ -10,15 +10,15 @@ My level is inspired in FF7 Shinra Building (https://www.glitterberri.com/conten
 ![Img4](https://github.com/lauriChu/MVD_ToolScripting/blob/master/MVD_ToolScripting-Exporter-Class9/4.png)
 
 ### 2. Export scene information into the engine using the tools we created.
-Exported corretcly into our engine.
+Exported correctly into our engine.
 
 ### 3. Create a new component
 I created a component named Platform wich allows a translation of meshes. This component have parameters like velocity... that can be modifyied. You can add this component into render with the button on inspector menu.
-![Img6](https://github.com/lauriChu/MVD_ToolScripting/blob/master/MVD_ToolScripting-Exporter-Class9/6.png)
+![Img6](https://github.com/lauriChu/MVD_ToolScripting/blob/master/MVD_ToolScripting-Exporter-Class9/6.PNG)
 ### 4. Complete the renderer debug menu
 Taking advantage of current parameters/information of Materials in our GraphicsSystem, I added information about the textures, specular, ambient...
 
-![Img5](https://github.com/lauriChu/MVD_ToolScripting/blob/master/MVD_ToolScripting-Exporter-Class9/5.png)
+![Img5](https://github.com/lauriChu/MVD_ToolScripting/blob/master/MVD_ToolScripting-Exporter-Class9/5.PNG)
 
 ### 5. Add script logic on console editor
 I added a command for change the current camera between the both that exists in the engines (first for player, and second for debug with free movements and without colliders). You cange change between then with the command "change_camera" and passing 0/1 for each camera.
