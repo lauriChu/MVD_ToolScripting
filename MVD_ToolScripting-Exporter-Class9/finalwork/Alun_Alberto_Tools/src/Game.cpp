@@ -34,11 +34,17 @@ void Game::init(int window_width, int window_height) {
     
 	//this is a simple level parser which reads a json file and loads it into the engine
     //Parsers::parseJSONLevel("data/assets/level4.json", graphics_system_);
-    Parsers::parseScene("data/assets/scenes/FirstLevel06.scene", graphics_system_);
+    Parsers::parseScene("data/assets/scenes/FirstLevel25.scene", graphics_system_);
 
 	//'o' = 'free look'; 'p' = fps 
 	createFree_((float)window_width_ / (float)window_height_, control_system_);
 	createPlayer_((float)window_width_ / (float)window_height_, control_system_);
+
+	int light_entity = ECS.createEntity("mLight");
+	ECS.createComponentForEntity<Light>(light_entity);
+	int transform_entity = ECS.createEntity("mTransform");
+	ECS.createComponentForEntity<Transform>(transform_entity);
+	ECS.getComponentFromEntity<Light>(light_entity).color = lm::vec3(1.0f, 1.0f, 1.0f);
 
     //******* LATE INIT AFTER LOADING RESOURCES *******//
     graphics_system_.lateInit();

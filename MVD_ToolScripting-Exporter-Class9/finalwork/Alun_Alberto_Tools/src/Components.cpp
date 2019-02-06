@@ -140,7 +140,7 @@ void Mesh::debugRender() {
 
         ImGui::Unindent(8);
         if (ImGui::TreeNode("Material" )) {
-            ImGui::Text("File:");
+            /*ImGui::Text("File:");
             ImGui::SameLine();
             Material & mat = Game::get().getGraphicsSystem().getMaterial(material);
             std::string material_name = mat.name;
@@ -150,7 +150,63 @@ void Mesh::debugRender() {
             // Add more textures
             // Add tiling
 
-            ImGui::Image((ImTextureID)(mat.diffuse_map), ImVec2(64, 64));
+			// Cursor Position
+
+			ImGui::SetCursorPos({ ImGui::GetCursorPos().x, ImGui::GetCursorPos().y + (64 - ImGui::GetFont()->FontSize) / 2 });
+			ImGui::Text("Cursor Position");
+            ImGui::Image((ImTextureID)(mat.diffuse_map), ImVec2(64, 64));*/
+
+			Material & mat = Game::get().getGraphicsSystem().getMaterial(material);
+			std::string material_name = mat.name;
+
+			float ambient[3] = { mat.ambient.x, mat.ambient.y, mat.ambient.z };
+			float specular[3] = { mat.specular.x, mat.specular.y, mat.specular.z };
+			float diffuse[3] = { mat.diffuse.x, mat.diffuse.y, mat.diffuse.z };
+
+			ImGui::AddSpace(0, 10);
+			if (ImGui::DragFloat3("Ambient", ambient)) {
+				mat.ambient.x = ambient[0];
+				mat.ambient.y = ambient[1];
+				mat.ambient.z = ambient[2];
+			}
+			ImGui::AddSpace(0, 10);
+			if (ImGui::DragFloat3("Specular", specular)) {
+				mat.specular.x = specular[0];
+				mat.specular.y = specular[1];
+				mat.specular.z = specular[2];
+			}
+			ImGui::AddSpace(0, 10);
+			if (ImGui::DragFloat3("Diffuse", diffuse)) {
+				mat.diffuse.x = diffuse[0];
+				mat.diffuse.y = diffuse[1];
+				mat.diffuse.z = diffuse[2];
+			}
+			ImGui::AddSpace(0, 10);
+			ImGui::DragFloat("Specular Gloss", &mat.specular_gloss);
+			ImGui::AddSpace(0, 10);
+
+			// FILE
+
+			ImGui::Text("File:");
+			ImGui::SameLine();
+			ImGui::Text(material_name.c_str());
+
+			ImGui::AddSpace(0, 10);
+			ImGui::Image((ImTextureID)(mat.diffuse_map), ImVec2(64, 64));
+			ImGui::SameLine();
+			
+			for (auto const& x : mat.textures)
+			{
+				ImGui::AddSpace(0, 10);
+				ImGui::Text(x.first.c_str());
+
+				Material & texture = Game::get().getGraphicsSystem().getMaterial(x.second);
+				std::string texture_name = texture.name;
+				ImGui::Text(texture_name.c_str());
+				ImGui::Image((ImTextureID)(texture.diffuse_map), ImVec2(64,64));
+				//ImGui::Image((ImTextureID)(mat.diffuse_map), ImVec2(64, 64));
+			}
+			//ImGui::Image((ImTextureID)(mat.textures[0]), ImVec2(64, 64));
 
             ImGui::TreePop();
         }
