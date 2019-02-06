@@ -1,6 +1,7 @@
 #include "ConsoleModule.h"
 #include "../imgui_demo.cpp"
 #include "../extern.h"
+#include "../Game.h"
 #include <ctime>
 #include <iostream>
 #include <iomanip>
@@ -61,6 +62,7 @@ void ConsoleModule::init()
     commands_.push_back("/classify");
 	commands_.push_back("/move_player");
 	commands_.push_back("/change_camera");
+	commands_.push_back("/switch_debug");
     ConsoleWrite(true, "Console Initialized!");
 }
 
@@ -280,6 +282,15 @@ void ConsoleModule::BuildCommand(const char* cmd)
 		else {
 			ConsoleWrite(false, "This camera doesn't exist");
 		}
+	}
+	else if (input.find("switch_debug") != std::string::npos)
+	{
+		int state = atof(v[1].c_str());
+		if (state != -1) 
+		{
+			Game::get().game_instance->getDebugSystem().setActive(state);
+		}
+		
 	}
     else {
         ConsoleWrite(false, "Unknown command: '%s'\n", cmd);

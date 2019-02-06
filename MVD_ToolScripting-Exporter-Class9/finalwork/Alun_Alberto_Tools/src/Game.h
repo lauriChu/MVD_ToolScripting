@@ -46,6 +46,10 @@ public:
         return graphics_system_;
     }
 
+	DebugSystem & getDebugSystem() {
+		return debug_system_;
+	}
+
 	//pass input straight to input system, if we are not showing Debug GUI
 	void updateMousePosition(int new_x, int new_y) {
 
